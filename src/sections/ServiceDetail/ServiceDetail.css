@@ -1,0 +1,50 @@
+.service-detail {
+  padding: 4rem 1.5rem;
+}
+
+.service-detail__inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.service-detail h1 {
+  margin-bottom: 1rem;
+}
+
+.service-detail__long {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.service-detail__highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.service-detail__highlights li {
+  padding-left: 1.3rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.service-detail__highlights li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.service-detail__cta {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 0.85rem 1.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}

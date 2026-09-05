@@ -1,0 +1,66 @@
+.team-grid {
+  padding: 4rem 1.5rem;
+}
+
+.team-grid__inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.team-grid h2 {
+  margin-bottom: 2rem;
+}
+
+.team-grid__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+  background: var(--color-bg-muted);
+}
+
+.team-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+}
+
+.team-card p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Founder gets a distinguished treatment: spans first, larger visual weight */
+.team-card--founder {
+  grid-column: span 1;
+}
+
+.team-card--founder img {
+  border: 3px solid var(--color-accent);
+}
+
+.team-card--founder h3 {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .team-grid__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .team-grid__grid {
+    grid-template-columns: 1fr;
+  }
+}

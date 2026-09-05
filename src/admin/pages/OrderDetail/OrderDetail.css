@@ -1,0 +1,207 @@
+.order-detail__back {
+  display: inline-block;
+  color: #4f6bff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.order-detail__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.order-detail__status-pill {
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.order-detail__status-pill--pending { background: #fff4e5; color: #b76e00; }
+.order-detail__status-pill--approved { background: #e6f4ea; color: #1a7f37; }
+.order-detail__status-pill--rejected { background: #fdecea; color: #d1242f; }
+.order-detail__status-pill--processing { background: #e8ecfd; color: #4f6bff; }
+.order-detail__status-pill--dispatched { background: #eef0ff; color: #8b5cf6; }
+.order-detail__status-pill--completed { background: #e2f9f6; color: #0f9c8e; }
+
+.order-detail__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.order-detail__card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 10px rgba(20, 24, 47, 0.06);
+}
+
+.order-detail__card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.order-detail__card p {
+  font-size: 0.9rem;
+  color: #344054;
+  margin: 0.2rem 0;
+}
+
+.order-detail__items {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-detail__items th,
+.order-detail__items td {
+  text-align: left;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eef0f4;
+  font-size: 0.88rem;
+}
+
+.order-detail__card textarea {
+  width: 100%;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  padding: 0.7rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+.order-detail__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.order-detail__btn {
+  border: none;
+  padding: 0.65rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.order-detail__btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.order-detail__btn--approve { background: #1a7f37; }
+.order-detail__btn--reject { background: #d1242f; }
+.order-detail__btn--advance { background: #4f6bff; }
+
+.order-detail__final-note {
+  font-size: 0.85rem;
+  color: #667085;
+}
+
+.order-detail__timeline-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(20, 24, 47, 0.06);
+}
+
+.order-detail__timeline-card h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.order-detail__progress {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.order-detail__progress li {
+  font-size: 0.85rem;
+  color: #98a2b3;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.order-detail__progress li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e4e7ec;
+}
+
+.order-detail__progress li.is-complete {
+  color: #14181f;
+  font-weight: 600;
+}
+
+.order-detail__progress li.is-complete::before {
+  background: #4f6bff;
+}
+
+.order-detail__history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid #eef0f4;
+  padding-top: 1rem;
+}
+
+.order-detail__history li {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.order-detail__history-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+  background: #4f6bff;
+}
+
+.order-detail__history-dot--rejected { background: #d1242f; }
+.order-detail__history-dot--completed { background: #0f9c8e; }
+
+.order-detail__history strong {
+  font-size: 0.85rem;
+  display: block;
+}
+
+.order-detail__history p {
+  font-size: 0.82rem;
+  color: #667085;
+  margin: 0.15rem 0;
+}
+
+.order-detail__history time {
+  font-size: 0.75rem;
+  color: #98a2b3;
+}
+
+@media (max-width: 960px) {
+  .order-detail__grid {
+    grid-template-columns: 1fr;
+  }
+}
