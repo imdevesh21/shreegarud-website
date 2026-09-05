@@ -49,4 +49,11 @@ export const adminApi = {
     adminFetch("/api/products", { method: "POST", token, body: JSON.stringify(product) }),
   updateProduct: (token, id, updates) =>
     adminFetch(`/api/products/${id}`, { method: "PATCH", token, body: JSON.stringify(updates) }),
+
+  getJobsAdmin: (token) => adminFetch("/api/careers/admin/all", { token }),
+  createJob: (token, job) =>
+    adminFetch("/api/careers", { method: "POST", token, body: JSON.stringify(job) }),
+  updateJob: (token, id, updates) =>
+    adminFetch(`/api/careers/${id}`, { method: "PATCH", token, body: JSON.stringify(updates) }),
+  getJobApplications: (token, id) => adminFetch(`/api/careers/${id}/applications`, { token }),
 };

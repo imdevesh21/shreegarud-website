@@ -47,6 +47,7 @@ export default function Header() {
           </div>
 
           <NavLink to="/shop">Shop</NavLink>
+          <NavLink to="/careers">Careers</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </nav>
 

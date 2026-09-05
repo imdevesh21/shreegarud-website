@@ -9,7 +9,7 @@ import db from "./db.js";
 import { signToken, requireAuth } from "./auth.js";
 import ordersRouter from "./routes-orders.js";
 import productsRouter from "./routes-products.js";
-
+import careersRouter from "./routes-careers.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -67,7 +67,7 @@ app.get("/api/admin/stats", requireAuth, (req, res) => {
 
 app.use("/api/orders", ordersRouter);
 app.use("/api/products", productsRouter);
-
+app.use("/api/careers", careersRouter);
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`API server running on http://localhost:${PORT}`);

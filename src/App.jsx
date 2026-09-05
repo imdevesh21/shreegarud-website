@@ -18,11 +18,14 @@ const ServiceSingle = lazy(() => import("./pages/ServiceSingle/ServiceSingle"));
 const Shop = lazy(() => import("./pages/Shop/Shop"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const OrderTracking = lazy(() => import("./pages/OrderTracking/OrderTracking"));
+const Careers = lazy(() => import("./pages/Careers/Careers"));
+const JobDetail = lazy(() => import("./pages/JobDetail/JobDetail"));
 const AdminLogin = lazy(() => import("./admin/pages/Login/Login"));
 const AdminDashboard = lazy(() => import("./admin/pages/Dashboard/Dashboard"));
 const AdminOrders = lazy(() => import("./admin/pages/Orders/Orders"));
 const AdminOrderDetail = lazy(() => import("./admin/pages/OrderDetail/OrderDetail"));
 const AdminProducts = lazy(() => import("./admin/pages/Products/Products"));
+const AdminCareers = lazy(() => import("./admin/pages/Careers/Careers"));
 
 function PublicSite() {
   return (
@@ -39,6 +42,8 @@ function PublicSite() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/orders" element={<OrderTracking />} />
             <Route path="/orders/:id" element={<OrderTracking />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/careers/:id" element={<JobDetail />} />
           </Routes>
         </Suspense>
       </main>
@@ -65,6 +70,7 @@ function AdminSite() {
             <Route path="orders" element={<AdminOrders />} />
             <Route path="orders/:id" element={<AdminOrderDetail />} />
             <Route path="products" element={<AdminProducts />} />
+            <Route path="careers" element={<AdminCareers />} />
           </Route>
         </Routes>
       </Suspense>

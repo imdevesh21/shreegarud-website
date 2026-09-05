@@ -21,6 +21,7 @@ export default function AdminLayout() {
           </NavLink>
           <NavLink to="/admin/orders">Orders</NavLink>
           <NavLink to="/admin/products">Products & Stock</NavLink>
+          <NavLink to="/admin/careers">Careers</NavLink>
         </nav>
         <div className="admin-layout__user">
           <span>{user?.name}</span>
