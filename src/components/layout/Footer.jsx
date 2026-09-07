@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { services } from "../../data/services";
 import { company } from "../../data/company";
 import Newsletter from "../../sections/Newsletter/Newsletter";
+import logo from "../../assets/logo/shree garud logo.png";
 import "./Footer.css";
 
 export default function Footer() {
@@ -9,6 +10,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__column">
+          <img src={logo} alt={company.name} className="footer__logo" />
           <h3>{company.name}</h3>
           <p>{company.address.line1}</p>
           <p>{company.address.line2}</p>

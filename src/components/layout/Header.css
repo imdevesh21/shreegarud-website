@@ -16,10 +16,18 @@
 }
 
 .header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--color-text);
   text-decoration: none;
+}
+
+.header__logo-img {
+  height: 36px;
+  width: auto;
 }
 
 .header__nav {

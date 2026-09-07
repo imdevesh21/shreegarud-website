@@ -9,10 +9,10 @@ export const company = {
   phoneRaw: "919810726787", // for wa.me and tel: links, no + or spaces
   email: "sales@shreegarud.com",
   address: {
-    line1: "Unit No 1206, Tower A, Spaze iTech Park",
-    line2: "Sector 49, Gurugram, Haryana 122018",
+    line1: "Unit No. 559, 5th Floor, JMD Megapolis",
+    line2: "Sector 48, Sohna Road, Gurugram, Haryana 122018",
     mapEmbedUrl:
-      "https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE_HERE", // TODO: replace with verified single address embed
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.979756849208!2d77.03565167510895!3d28.419867675781543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d229e71ef44dd%3A0x9931b80f30d32dd3!2sJMD%20Megapolis!5e0!3m2!1sen!2sin!4v1788770942277!5m2!1sen!2sin",
   },
   hours: {
     weekdays: "Mon – Sat: 10am – 6pm",

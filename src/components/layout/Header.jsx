@@ -1,13 +1,20 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { services } from "../../data/services";
 import { buildWhatsAppLink } from "../../data/company";
 import ThemeToggle from "../common/ThemeToggle/ThemeToggle";
+import logo from "../../assets/logo/shree garud logo.png";
 import "./Header.css";
 
 export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setServicesOpen(false);
+    setMobileOpen(false);
+  }, [location.pathname]);
 
   const quoteLink = buildWhatsAppLink(
     "Hi, I'd like to get a quote for your IT services."
@@ -17,7 +24,8 @@ export default function Header() {
     <header className="header">
       <div className="header__inner">
         <Link to="/" className="header__logo">
-          Shree Garud IT Solutions
+          <img src={logo} alt="Shree Garud IT Solutions" className="header__logo-img" />
+          <span>Shree Garud IT Solutions</span>
         </Link>
 
         <nav className={`header__nav ${mobileOpen ? "is-open" : ""}`}>
