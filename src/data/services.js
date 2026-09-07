@@ -153,6 +153,21 @@ export const services = [
       "Setup & onboarding support",
     ],
   },
+  {
+    slug: "e-waste-collection",
+    title: "E-waste Collection",
+    icon: "recycle",
+    shortDescription:
+      "Responsible collection and disposal of old IT hardware, in line with e-waste regulations.",
+    longDescription:
+      "We help businesses responsibly retire outdated IT equipment — laptops, desktops, servers, networking gear, and peripherals — through certified e-waste collection and disposal. This keeps your organization compliant with e-waste regulations while ensuring data-bearing devices are securely wiped or destroyed before recycling.",
+    highlights: [
+      "Certified e-waste disposal",
+      "Secure data wiping before disposal",
+      "Bulk pickup for offices",
+      "Compliance documentation provided",
+    ],
+  },
 ];
 
 export const getServiceBySlug = (slug) =>

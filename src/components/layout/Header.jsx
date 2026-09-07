@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { services } from "../../data/services";
 import { buildWhatsAppLink } from "../../data/company";
+import ThemeToggle from "../common/ThemeToggle/ThemeToggle";
 import "./Header.css";
 
 export default function Header() {
@@ -52,6 +53,7 @@ export default function Header() {
         </nav>
 
         <div className="header__actions">
+          <ThemeToggle />
           <a
             href={quoteLink}
             target="_blank"

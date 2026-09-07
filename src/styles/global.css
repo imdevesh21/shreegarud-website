@@ -29,6 +29,17 @@
   --font-display: "Space Grotesk", var(--font-sans);
 }
 
+/* Light theme overrides — applied when <html data-theme="light"> */
+[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-bg-muted: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-text: #14181f;
+  --color-text-muted: #5a6472;
+  --color-border: #e4e7ec;
+  --gradient-glow: radial-gradient(circle at 30% 20%, rgba(79, 107, 255, 0.12), transparent 60%);
+}ThemeContext.jsx
+
 * {
   box-sizing: border-box;
 }
