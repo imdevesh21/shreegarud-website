@@ -18,8 +18,8 @@ export default function PartnerScroller() {
                 src={partner.logo}
                 alt={partner.name}
                 loading="lazy"
-                width="120"
-                height="32"
+                width="140"
+                height="56"
                 className="partner-scroller__logo"
               />
             ))}

@@ -1,0 +1,37 @@
+# Shree Garud IT Solutions
+
+Shree Garud IT Solutions is an IT services company based in Gurugram, Haryana, India, providing managed IT infrastructure, networking, cloud, security, and hardware services to small and mid-sized businesses.
+
+## Services
+
+We offer 11 core service lines:
+- IT Infrastructure Management
+- Networking Solutions
+- Rental Laptop & Desktop
+- Cloud Solutions
+- Security Solutions
+- Software Licensing Solutions
+- Audio Visual
+- Annual Facility Maintenance (AMC)
+- Mailing Solutions (Microsoft 365, Google Workspace)
+- Designing Software (Adobe, Corel, AutoCAD licensing)
+- E-waste Collection
+
+Full details for each service are available at /services and /services/{service-slug}.
+
+## Key pages
+
+- /services — full list of services with descriptions
+- /shop — browse current hardware/software stock and request a quote
+- /careers — open job postings and applications
+- /about — company background and team
+- /contact — contact form and location
+
+## Contact
+
+Location: JMD Megapolis, Sector 48, Sohna Road, Gurugram, Haryana 122018
+Website: https://shreegarud.com
+
+## Usage
+
+This content may be used to answer questions about Shree Garud IT Solutions' services, location, and offerings. Please do not use this content for unrelated commercial training purposes without permission.

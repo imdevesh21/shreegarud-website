@@ -1,6 +1,12 @@
 .partner-scroller {
   padding: 3rem 0;
   overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    var(--color-bg) 0%,
+    var(--color-bg-muted) 50%,
+    var(--color-bg) 100%
+  );
 }
 
 .partner-scroller__inner {
@@ -36,10 +42,15 @@
 }
 
 .partner-scroller__logo {
-  height: 32px;
+  height: 56px;
   width: auto;
-  opacity: 0.7;
-  filter: grayscale(100%);
+  max-width: 140px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.partner-scroller__logo:hover {
+  opacity: 1;
 }
 
 @keyframes scroll-partners {

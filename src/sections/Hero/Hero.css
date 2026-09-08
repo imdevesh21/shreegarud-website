@@ -55,6 +55,8 @@
 .hero__visual {
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 340px;
 }
 
 @media (max-width: 900px) {
@@ -71,5 +73,6 @@
   }
   .hero__visual {
     order: -1;
+    min-height: 260px;
   }
 }

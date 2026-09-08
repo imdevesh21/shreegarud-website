@@ -26,7 +26,7 @@
 }
 
 .header__logo-img {
-  height: 36px;
+  height: 52px;
   width: auto;
 }
 
@@ -40,6 +40,31 @@
   color: var(--color-text);
   text-decoration: none;
   font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 150ms ease, text-shadow 150ms ease;
+}
+
+.header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-brand);
+  transition: width 200ms ease;
+}
+
+.header__nav a:hover,
+.header__nav a.active {
+  color: var(--color-accent);
+  text-shadow: 0 0 12px rgba(79, 107, 255, 0.5);
+}
+
+.header__nav a:hover::after,
+.header__nav a.active::after {
+  width: 100%;
 }
 
 .header__services-dropdown {
