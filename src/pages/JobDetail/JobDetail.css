@@ -126,3 +126,10 @@
   display: block;
   margin-top: 1rem;
 }
+
+@media (max-width: 420px) {
+  .job-detail__apply,
+  .contact-form__inner {
+    padding: 1.25rem;
+  }
+}

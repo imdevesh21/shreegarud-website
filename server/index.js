@@ -2,6 +2,7 @@
 // products, and the orders/dashboard system with JWT-authenticated
 // admin routes.
 
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import bcrypt from "bcryptjs";
@@ -10,27 +11,33 @@ import { signToken, requireAuth } from "./auth.js";
 import ordersRouter from "./routes-orders.js";
 import productsRouter from "./routes-products.js";
 import careersRouter from "./routes-careers.js";
+import { sendContactNotification, sendNewsletterConfirmation } from "./email.js";
 const app = express();
 app.use(cors());
 app.use(express.json());
-
 // ---- Contact form (from Phase 1) ----
-app.post("/api/contact", (req, res) => {
+app.post("/api/contact", async (req, res) => {
   const { name, email, phone, message } = req.body;
   if (!name || !email || !message) {
     return res.status(400).json({ message: "Name, email, and message are required." });
   }
-  // TODO: send email notification + auto-reply (nodemailer/SES)
-  console.log("New contact lead:", { name, email, phone, message });
+  try {
+    await sendContactNotification({ name, email, phone, message });
+  } catch (err) {
+    console.error("Failed to send contact email:", err);
+  }
   res.status(201).json({ message: "Lead received." });
 });
 
 // ---- Newsletter (from Phase 1) ----
-app.post("/api/newsletter", (req, res) => {
+app.post("/api/newsletter", async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).json({ message: "Email is required." });
-  // TODO: connect to Mailchimp/Brevo
-  console.log("New newsletter subscriber:", email);
+  try {
+    await sendNewsletterConfirmation(email);
+  } catch (err) {
+    console.error("Failed to send newsletter confirmation:", err);
+  }
   res.status(201).json({ message: "Subscribed." });
 });
 

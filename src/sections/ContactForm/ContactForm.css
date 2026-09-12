@@ -36,9 +36,23 @@
 .contact-form__field textarea {
   padding: 0.7rem 0.9rem;
   border-radius: 6px;
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text);
   font-size: 0.95rem;
   font-family: inherit;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+
+.contact-form__field input:hover,
+.contact-form__field textarea:hover {
+  border-color: var(--color-text-muted);
+}
+
+.contact-form__field input:focus,
+.contact-form__field textarea:focus {
+  border-color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .contact-form__error {

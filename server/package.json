@@ -10,7 +10,9 @@
     "bcryptjs": "^3.0.3",
     "better-sqlite3": "^13.0.3",
     "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
     "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.3"
+    "jsonwebtoken": "^9.0.3",
+    "resend": "^6.27.0"
   }
 }

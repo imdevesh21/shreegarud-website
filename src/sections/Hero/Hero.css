@@ -76,3 +76,27 @@
     min-height: 260px;
   }
 }
+
+@media (max-width: 420px) {
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero__title {
+    font-size: 1.65rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__cta {
+    text-align: center;
+    width: 100%;
+  }
+}

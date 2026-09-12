@@ -79,6 +79,17 @@ button {
   font-family: inherit;
 }
 
+button, a.header__cta, a.hero__cta {
+  transition: transform 100ms ease;
+}
+button:active, a.header__cta:active, a.hero__cta:active {
+  transform: scale(0.97);
+}
+
+body, .header, .footer, .service-card, .shop-card {
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+}
+
 img {
   max-width: 100%;
   display: block;
@@ -95,4 +106,13 @@ img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+main {
+  animation: page-fade-in 250ms ease;
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

@@ -81,3 +81,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 420px) {
+  .footer__inner {
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+}
