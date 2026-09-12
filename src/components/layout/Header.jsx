@@ -24,7 +24,7 @@ export default function Header() {
     <header className="header">
       <div className="header__inner">
         <Link to="/" className="header__logo">
-          <img src={logo} alt="Shree Garud IT Solutions" className="header__logo-img" />
+          <img src={logo} alt="Shree Garud IT Solutions" className="header__logo-img" width="180" height="52"/>
           <span>Shree Garud IT Solutions</span>
         </Link>
 
