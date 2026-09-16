@@ -7,7 +7,6 @@ import { AuthProvider } from "./admin/context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 import RequireAuth from "./admin/components/RequireAuth";
 import AdminLayout from "./admin/components/AdminLayout";
-
 // Route-based code splitting: each page ships as its own chunk instead of
 // one giant bundle — keeps the public site's Lighthouse score intact even
 // as the admin dashboard grows.
@@ -26,7 +25,9 @@ const AdminOrders = lazy(() => import("./admin/pages/Orders/Orders"));
 const AdminOrderDetail = lazy(() => import("./admin/pages/OrderDetail/OrderDetail"));
 const AdminProducts = lazy(() => import("./admin/pages/Products/Products"));
 const AdminCareers = lazy(() => import("./admin/pages/Careers/Careers"));
-
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy/RefundPolicy"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy/PrivacyPolicy"));
+const NotFound = lazy(() => import("./pages/NotFound/NotFound"));
 function PublicSite() {
   return (
     <CartProvider>
@@ -44,6 +45,9 @@ function PublicSite() {
             <Route path="/orders/:id" element={<OrderTracking />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/careers/:id" element={<JobDetail />} />
+            <Route path="/refund" element={<RefundPolicy />} />
+            <Route path="/privacy" element={<PrivacyPolicy/>} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

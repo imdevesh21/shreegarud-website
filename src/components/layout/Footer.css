@@ -16,7 +16,7 @@
   margin: 0 auto;
   padding: 3rem 1.5rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
   gap: 2rem;
 }
 
@@ -29,10 +29,26 @@
   margin: 0.25rem 0;
   opacity: 0.85;
   font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer__address {
+  font-style: normal;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.footer__address p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.footer__contact-line {
+  white-space: nowrap;
 }
 
 .footer__hours {
   margin-top: 0.75rem;
+  line-height: 1.5;
 }
 
 .footer__column ul {
@@ -79,6 +95,11 @@
 @media (max-width: 560px) {
   .footer__inner {
     grid-template-columns: 1fr;
+  }
+
+  .footer__address p,
+  .footer__contact-line {
+    white-space: normal;
   }
 }
 

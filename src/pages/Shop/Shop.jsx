@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getProducts, submitOrder } from "../../api/shop";
 import { useCart } from "../../context/CartContext";
 import "./Shop.css";
+import ServiceUnavailable from "../ServiceUnavailable/ServiceUnavailable";
 
 function ProductCard({ product }) {
   const { items, setQuantity } = useCart();
@@ -237,7 +238,7 @@ export default function Shop() {
         )}
 
         {loading && <p>Loading products…</p>}
-        {error && <p className="shop__error">{error}</p>}
+        {error && <ServiceUnavailable message="We couldn't load the shop right now." />}
 
         {!loading && !error && (
           <div className="shop__grid">

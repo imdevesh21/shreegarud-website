@@ -9,13 +9,15 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <div className="footer__column">
+        <div className="footer__column footer__column--brand">
           <img src={logo} alt={company.name} className="footer__logo" />
           <h3>{company.name}</h3>
-          <p>{company.address.line1}</p>
-          <p>{company.address.line2}</p>
-          <p>{company.phoneDisplay}</p>
-          <p>{company.email}</p>
+          <address className="footer__address">
+            <p>{company.address.line1},</p>
+            <p>{company.address.line2}</p>
+          </address>
+          <p className="footer__contact-line">{company.phoneDisplay}</p>
+          <p className="footer__contact-line">{company.email}</p>
           <p className="footer__hours">
             {company.hours.weekdays}
             <br />
