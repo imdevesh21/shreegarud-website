@@ -33,12 +33,30 @@ app.post("/api/contact", async (req, res) => {
 app.post("/api/newsletter", async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).json({ message: "Email is required." });
+
+  try {
+    db.prepare(
+      "INSERT INTO newsletter_subscribers (email) VALUES (?) ON CONFLICT(email) DO UPDATE SET is_active = 1"
+    ).run(email);
+  } catch (err) {
+    console.error("Failed to save newsletter subscriber:", err);
+    return res.status(500).json({ message: "Failed to subscribe. Please try again." });
+  }
+
   try {
     await sendNewsletterConfirmation(email);
   } catch (err) {
     console.error("Failed to send newsletter confirmation:", err);
   }
+
   res.status(201).json({ message: "Subscribed." });
+});
+
+app.get("/api/admin/newsletter-subscribers", requireAuth, (req, res) => {
+  const subscribers = db
+    .prepare("SELECT * FROM newsletter_subscribers WHERE is_active = 1 ORDER BY subscribed_at DESC")
+    .all();
+  res.json({ subscribers });
 });
 
 // ---- Admin auth ----

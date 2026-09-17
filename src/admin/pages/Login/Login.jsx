@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { adminApi } from "../../api/adminApi";
+import logo from "../../../assets/logo/shree garud logo.png";
 import "./Login.css";
 
 export default function Login() {
@@ -32,6 +33,7 @@ export default function Login() {
   return (
     <div className="admin-login">
       <form className="admin-login__card" onSubmit={handleSubmit}>
+        <img src={logo} alt="Shree Garud IT Solutions" className="admin-login__logo" />
         <h1>Admin Dashboard</h1>
         <p>Shree Garud IT Solutions</p>
 

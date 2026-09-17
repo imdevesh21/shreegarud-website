@@ -69,6 +69,8 @@
 
 .header__services-dropdown {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .header__mega-menu {

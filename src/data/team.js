@@ -4,8 +4,8 @@
 // Team member photos live in src/assets/teams-images/ — imported directly
 // so Vite bundles them correctly (works with the space-free filenames here).
 import vipinPhoto from "../assets/teams-images/vipinsir.png";
-import mohanPhoto from "../assets/teams-images/mohan.jpg";
-import rohitPhoto from "../assets/teams-images/rohitsir.jpg";
+import mohanPhoto from "../assets/teams-images/mohan.png";
+import rohitPhoto from "../assets/teams-images/rohitsir.png";
 import anjuPhoto from "../assets/teams-images/anju.png";
 
 // isFounder gets a distinguished card treatment in TeamGrid.

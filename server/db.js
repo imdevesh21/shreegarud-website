@@ -78,6 +78,13 @@ db.exec(`
     resume_url TEXT,
     submitted_at TEXT DEFAULT (datetime('now'))
   );
+  
+  CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE NOT NULL,
+    subscribed_at TEXT DEFAULT (datetime('now')),
+    is_active INTEGER NOT NULL DEFAULT 1
+  );
 `);
 
 // Seed one admin user + a few products + sample jobs on first run, so the

@@ -1,8 +1,8 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 const FROM_EMAIL = process.env.FROM_EMAIL || "onboarding@resend.dev"; // swap once your domain is verified
-const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "jyotikumarishreegarud@gmail.com";
+const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "sales@shreegarud.com";
 
 export async function sendContactNotification({ name, email, phone, message }) {
   if (!process.env.RESEND_API_KEY) {
@@ -56,6 +56,37 @@ export async function sendOrderNotification(order, items) {
       <p><strong>Customer:</strong> ${order.customer_name} (${order.customer_email}, ${order.customer_phone || "—"})</p>
       <p><strong>Items:</strong></p>
       <ul>${itemsHtml}</ul>
+    `,
+  });
+}
+
+const STATUS_MESSAGES = {
+  approved: "Good news — your order has been approved and we're getting it ready.",
+  rejected: "Unfortunately, we're unable to fulfill this order request.",
+  processing: "Your order is now being processed.",
+  dispatched: "Your order has been dispatched and is on its way.",
+  completed: "Your order has been completed. Thank you for choosing us!",
+};
+
+export async function sendOrderStatusUpdate(order, note) {
+  if (!process.env.RESEND_API_KEY) {
+    console.log("[email skipped - no RESEND_API_KEY set] Order status update:", order.id, order.status);
+    return;
+  }
+
+  const statusMessage = STATUS_MESSAGES[order.status] || `Your order status has been updated to: ${order.status}`;
+
+  await resend.emails.send({
+    from: FROM_EMAIL,
+    to: order.customer_email,
+    subject: `Update on your order #${order.id} — Shree Garud IT Solutions`,
+    html: `
+      <p>Hi ${order.customer_name},</p>
+      <p>${statusMessage}</p>
+      ${note ? `<p><strong>Note from our team:</strong> ${note}</p>` : ""}
+      <p>Order #: ${order.id}</p>
+      <p>If you have any questions, just reply to this email or reach out to us at ${NOTIFY_EMAIL}.</p>
+      <p>Thank you,<br/>Shree Garud IT Solutions</p>
     `,
   });
 }

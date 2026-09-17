@@ -1,6 +1,7 @@
 import { Router } from "express";
 import db from "./db.js";
 import { requireAuth } from "./auth.js";
+import { sendOrderNotification, sendOrderStatusUpdate } from "./email.js";
 
 const router = Router();
 
@@ -16,7 +17,7 @@ const VALID_STATUSES = [
 // ---- PUBLIC: customer submits an order request ----
 // POST /api/orders
 // body: { customer_name, customer_email, customer_phone, items: [{ product_id, quantity, notes }] }
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const { customer_name, customer_email, customer_phone, items } = req.body;
 
   if (!customer_name || !customer_email || !Array.isArray(items) || items.length === 0) {
@@ -40,10 +41,22 @@ router.post("/", (req, res) => {
     "INSERT INTO order_timeline (order_id, status, note, changed_by) VALUES (?, 'pending', 'Order submitted by customer', 'system')"
   ).run(orderId);
 
-  // TODO: send email notification to sales@shreegarud.com
+  // Notify the team that a new order needs review.
+  try {
+    const orderItemsForEmail = items.map((item) => ({
+      quantity: item.quantity,
+      notes: item.notes,
+    }));
+    await sendOrderNotification(
+      { id: orderId, customer_name, customer_email, customer_phone },
+      orderItemsForEmail
+    );
+  } catch (err) {
+    console.error("Failed to send new-order team notification:", err);
+  }
+
   // TODO: send WhatsApp interactive Approve/Reject message to the team
   //       via WhatsApp Business API (WATI/AiSensy webhook trigger goes here)
-  console.log(`New order #${orderId} from ${customer_name} — notify team via email + WhatsApp here.`);
 
   res.status(201).json({ orderId, message: "Order submitted." });
 });
@@ -100,7 +113,7 @@ router.get("/:id", requireAuth, (req, res) => {
 // ---- ADMIN: update order status (approve/reject/advance) ----
 // This is the endpoint a WhatsApp webhook would also call once the team
 // taps Approve/Reject on the interactive message — same code path either way.
-router.patch("/:id/status", requireAuth, (req, res) => {
+router.patch("/:id/status", requireAuth, async (req, res) => {
   const { status, note } = req.body;
 
   if (!VALID_STATUSES.includes(status)) {
@@ -119,7 +132,14 @@ router.patch("/:id/status", requireAuth, (req, res) => {
     "INSERT INTO order_timeline (order_id, status, note, changed_by) VALUES (?, ?, ?, ?)"
   ).run(order.id, status, note || "", req.admin.name);
 
-  // TODO: notify customer of status change via email/WhatsApp
+  // Notify the customer of the status change — fetch the fresh row so the
+  // email reflects the just-updated status.
+  const updatedOrder = db.prepare("SELECT * FROM orders WHERE id = ?").get(order.id);
+  try {
+    await sendOrderStatusUpdate(updatedOrder, note);
+  } catch (err) {
+    console.error("Failed to send order status email:", err);
+  }
 
   res.json({ message: "Status updated." });
 });

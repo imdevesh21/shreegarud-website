@@ -12,7 +12,7 @@ export default function TeamGrid() {
               key={member.name}
               className={`team-card ${member.isFounder ? "team-card--founder" : ""}`}
             >
-              <img src={member.photo} alt={member.name} loading="lazy" width="300" height="300" />
+              <img src={member.photo} alt={member.name} loading="lazy" width="400" height="400" />
               <h3>{member.name}</h3>
               <p>{member.title}</p>
             </article>
