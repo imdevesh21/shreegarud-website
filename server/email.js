@@ -2,7 +2,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM_EMAIL = process.env.FROM_EMAIL || "onboarding@resend.dev"; // swap once your domain is verified
-const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "deveshsharma.it23@gmail.com";
+const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "jyotikumarishreegarud@gmail.com";
 
 export async function sendContactNotification({ name, email, phone, message }) {
   if (!process.env.RESEND_API_KEY) {
