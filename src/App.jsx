@@ -1,4 +1,5 @@
 import { Suspense, lazy } from "react";
+import ScrollToTop from "./components/common/ScrollToTop/ScrollToTop";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -32,6 +33,7 @@ function PublicSite() {
   return (
     <CartProvider>
       <Header />
+      <ScrollToTop />
       <main>
         <Suspense fallback={<div style={{ minHeight: "60vh" }} />}>
           <Routes>
