@@ -90,6 +90,8 @@ app.get("/api/admin/stats", requireAuth, (req, res) => {
   res.json({ totalOrders, pendingOrders, lowStock, totalProducts });
 });
 
+app.get("/healthz", (req, res) => res.status(200).send("OK"));
+
 app.use("/api/orders", ordersRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/careers", careersRouter);
