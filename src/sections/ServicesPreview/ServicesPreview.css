@@ -49,8 +49,8 @@
 .service-card a {
   font-size: 0.9rem;
   color: var(--color-accent);
-  text-decoration: none;
-  font-weight: 600;
+  text-decoration: underline;
+  font-weight: 700;
 }
 
 .services-preview__view-all {

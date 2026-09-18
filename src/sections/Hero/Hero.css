@@ -48,8 +48,9 @@
 }
 
 .hero__cta--whatsapp {
-  background: #25d366;
-  color: #fff;
+  background: #1da851;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .hero__visual {

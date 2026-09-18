@@ -72,6 +72,8 @@ export default function ContactForm() {
               autoComplete="off"
               value={form.website}
               onChange={handleChange}
+              aria-hidden="true"
+              inert=""
             />
           </div>
 
